@@ -8,6 +8,6 @@ Feature: Search by keyword
 
   @red
   Scenario: Searching for 'faculty'
-    Given Sergey is researching things on the internet
+    Given Sergey is researching things on UOM website
     When he looks up "faculty"
-    Then he should see information about "Search | University of Moratuwa"
+    Then he should see information about "keys=faculty"

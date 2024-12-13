@@ -11,7 +11,7 @@ import starter.helpers.search.LookForInformation;
 
 
 public class SearchStepDefinitions {
-    @Given("{actor} is researching things on the internet")
+    @Given("{actor} is researching things on UOM website")
     public void researchingThings(Actor actor) {
         actor.wasAbleTo(NavigateTo.theSearchHomePage());
     }
@@ -27,7 +27,7 @@ public class SearchStepDefinitions {
     public void should_see_information_about(Actor actor, String term) {
 
         actor.attemptsTo(
-                Ensure.that(TheWebPage.title()).containsIgnoringCase(term)
+                Ensure.that(TheWebPage.currentUrl()).containsIgnoringCase(term)
         );
     }
 
