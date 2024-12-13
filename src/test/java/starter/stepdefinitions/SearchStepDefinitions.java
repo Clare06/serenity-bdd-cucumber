@@ -27,7 +27,7 @@ public class SearchStepDefinitions {
     public void should_see_information_about(Actor actor, String term) {
 
         actor.attemptsTo(
-                Ensure.that(TheWebPage.currentUrl()).containsIgnoringCase(term)
+                Ensure.that(TheWebPage.source()).containsIgnoringCase(term)
         );
     }
 
