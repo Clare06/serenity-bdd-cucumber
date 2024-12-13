@@ -6,11 +6,11 @@ import io.cucumber.java.en.When;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.ensure.Ensure;
 import net.serenitybdd.screenplay.questions.page.TheWebPage;
-import starter.navigation.NavigateTo;
-import starter.search.LookForInformation;
+import starter.helpers.NavigateTo;
+import starter.helpers.search.LookForInformation;
+
 
 public class SearchStepDefinitions {
-
     @Given("{actor} is researching things on the internet")
     public void researchingThings(Actor actor) {
         actor.wasAbleTo(NavigateTo.theSearchHomePage());
@@ -25,8 +25,10 @@ public class SearchStepDefinitions {
 
     @Then("{actor} should see information about {string}")
     public void should_see_information_about(Actor actor, String term) {
+
         actor.attemptsTo(
                 Ensure.that(TheWebPage.title()).containsIgnoringCase(term)
         );
     }
+
 }

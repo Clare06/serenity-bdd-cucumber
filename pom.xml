@@ -7,7 +7,7 @@
     <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>Sample Serenity BDD project using Cucumber</name>
+    <name>Inferiority Resistors</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -146,11 +146,13 @@
                     <reports>single-page-html</reports>
                 </configuration>
                 <dependencies>
+                    <!-- https://mvnrepository.com/artifact/net.serenity-bdd/serenity-single-page-report -->
                     <dependency>
                         <groupId>net.serenity-bdd</groupId>
                         <artifactId>serenity-single-page-report</artifactId>
-                        <version>${serenity.version}</version>
+                        <version>4.2.8</version>
                     </dependency>
+
                 </dependencies>
                 <executions>
                     <execution>
