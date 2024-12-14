@@ -23,7 +23,7 @@ public class LibraryApiActions extends UIInteractions {
                 .baseUri("http://localhost:7081")
                 .basePath("/api/books/")
                 .auth()
-                .basic("admin", "password") // Ensure the correct authentication credentials
+                .basic("admin", "password")
                 .get()
                 .then()
                 .statusCode(200);
@@ -31,7 +31,7 @@ public class LibraryApiActions extends UIInteractions {
 
     @When("I fetch the book list")
     public void fetchBookList() {
-        // Define the correct type for the deserialization of a list of Book objects
+
         Type bookListType = new TypeToken<List<Book>>() {}.getType();
 
        bookList = RestAssured.given()
