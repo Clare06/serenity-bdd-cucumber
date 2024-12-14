@@ -1,4 +1,4 @@
-package starter.librarysystem;
+package starter.librarysystem.dto;
 
 public class Book {
     private String title;

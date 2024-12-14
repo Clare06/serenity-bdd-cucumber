@@ -1,4 +1,4 @@
-package starter.librarysystem;
+package starter.librarysystem.apiactions;
 
 import com.google.gson.reflect.TypeToken;
 import io.cucumber.java.en.Given;
@@ -8,11 +8,10 @@ import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.mapper.ObjectMapperType;
 import net.serenitybdd.core.steps.UIInteractions;
+import starter.librarysystem.dto.Book;
 
 import java.lang.reflect.Type;
 import java.util.List;
-
-import static net.serenitybdd.rest.SerenityRest.*;
 
 public class LibraryApiActions extends UIInteractions {
     private static List<Book> bookList;
