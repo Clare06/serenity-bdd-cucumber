@@ -13,7 +13,7 @@ import starter.librarysystem.dto.Book;
 import java.lang.reflect.Type;
 import java.util.List;
 
-public class LibraryApiActions extends UIInteractions {
+public class GetBookListApiAction extends UIInteractions {
     private static List<Book> bookList;
 
     @Given("The library API is available")
