@@ -7,25 +7,18 @@ import io.cucumber.java.en.When;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.mapper.ObjectMapperType;
-import net.serenitybdd.core.steps.UIInteractions;
+import starter.librarysystem.availableapiacitons.GetBookListApiAbstract;
 import starter.librarysystem.dto.Book;
 
 import java.lang.reflect.Type;
 import java.util.List;
 
-public class GetBookListApiAction extends UIInteractions {
+public class GetBookListApiAction extends GetBookListApiAbstract {
     private static List<Book> bookList;
 
     @Given("The library API is available")
     public void theLibraryApiIsAvailable() {
-        RestAssured.given()
-                .baseUri("http://localhost:7081")
-                .basePath("/api/books/")
-                .auth()
-                .basic("admin", "password")
-                .get()
-                .then()
-                .statusCode(200);
+        verifyApiIsAvailable();
     }
 
     @When("I fetch the book list")
