@@ -4,11 +4,9 @@ import com.google.gson.reflect.TypeToken;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.restassured.RestAssured;
-import io.restassured.http.ContentType;
-import io.restassured.mapper.ObjectMapperType;
 import starter.librarysystem.availableapiacitons.GetBookListApiAbstract;
 import starter.librarysystem.dto.Book;
+import starter.librarysystem.rest.RestRequestHelper;
 
 import java.lang.reflect.Type;
 import java.util.List;
@@ -25,19 +23,10 @@ public class GetBookListApiAction extends GetBookListApiAbstract {
     public void fetchBookList() {
 
         Type bookListType = new TypeToken<List<Book>>() {}.getType();
+        RestRequestHelper restHelper = new RestRequestHelper("/api/books/");
 
-       bookList = RestAssured.given()
-                .baseUri("http://localhost:7081")
-                .basePath("/api/books/")
-                .auth()
-                .basic("admin", "password")
-                .accept(ContentType.JSON)
-                .get()
-                .then()
-                .statusCode(200)
-                .extract()
-                .body()
-                .as(bookListType, ObjectMapperType.GSON);
+        bookList = restHelper.sendRequest("GET", null, "admin","password").body().as(bookListType);
+
     }
 
     @Then("I should receive a list of books")
