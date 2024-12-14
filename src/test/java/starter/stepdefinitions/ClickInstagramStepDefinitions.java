@@ -4,30 +4,30 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.serenitybdd.screenplay.Actor;
+import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.ensure.Ensure;
 import net.serenitybdd.screenplay.questions.page.TheWebPage;
 import starter.helpers.NavigateTo;
-import starter.helpers.search.LookForInformation;
+import starter.helpers.instagram.TargetButton;
 
-public class SearchStepDefinitions {
-    @Given("{actor} is researching things on UOM website")
-    public void researchingThings(Actor actor) {
+public class ClickInstagramStepDefinitions {
+    @Given("{actor} wants to go to UOM instagram page")
+    public void lookingForInstagaram(Actor actor) {
         actor.wasAbleTo(NavigateTo.theSearchHomePage());
     }
 
-    @When("{actor} looks up {string}")
-    public void searchesFor(Actor actor, String term) {
+    @When("{actor} clicks Instagram icon")
+    public void clickingInstagram(Actor actor) {
         actor.attemptsTo(
-                LookForInformation.about(term)
+                Click.on(TargetButton.BODY)
         );
     }
 
-    @Then("{actor} should see information about {string}")
+    @Then("{actor} should see instagram url {string}")
     public void should_see_information_about(Actor actor, String term) {
 
         actor.attemptsTo(
-                Ensure.that(TheWebPage.source()).containsIgnoringCase(term)
+                Ensure.that(TheWebPage.currentUrl()).containsIgnoringCase(term)
         );
     }
-
 }

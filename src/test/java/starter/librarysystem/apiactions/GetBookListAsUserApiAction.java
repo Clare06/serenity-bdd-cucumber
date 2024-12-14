@@ -11,25 +11,24 @@ import starter.librarysystem.rest.RestRequestHelper;
 import java.lang.reflect.Type;
 import java.util.List;
 
-public class GetBookListApiAction extends GetBookListApiAbstract {
+public class GetBookListAsUserApiAction extends GetBookListApiAbstract {
     private static List<Book> bookList;
 
-    @Given("The library get book list API is available")
+    @Given("The get book list API is available and running")
     public void theLibraryApiIsAvailable() {
         verifyApiIsAvailable();
     }
-
-    @When("I fetch the book list")
+    @When("As an user fetch the book list")
     public void fetchBookList() {
 
         Type bookListType = new TypeToken<List<Book>>() {}.getType();
         RestRequestHelper restHelper = new RestRequestHelper("/api/books/");
 
-        bookList = restHelper.sendRequest("GET", null, "admin","password").body().as(bookListType);
+        bookList = restHelper.sendRequest("GET", null, "user","password").body().as(bookListType);
 
     }
 
-    @Then("I should receive a list of books")
+    @Then("He should receive a list of books")
     public void verifyBookList() {
         if ( bookList == null ) {
             throw new AssertionError("Book list is empty or not fetched successfully");
