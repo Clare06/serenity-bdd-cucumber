@@ -32,7 +32,7 @@ public class GetBookListApiAction extends GetBookListApiAbstract {
     @Then("I should receive a list of books")
     public void verifyBookList() {
         if ( bookList == null ) {
-            throw new AssertionError("Book list is empty or not fetched successfully");
+            throw new AssertionError("Book list not fetched successfully");
         }
         System.out.println("Books fetched successfully: " + bookList.size() + " books found.");
     }
