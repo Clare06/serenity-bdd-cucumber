@@ -1,16 +1,11 @@
 package starter.librarysystem.apiactions;
 
-import com.google.gson.reflect.TypeToken;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.response.Response;
-import starter.librarysystem.availableapiacitons.GetBookListApiAbstract;
-import starter.librarysystem.dto.Book;
+import starter.librarysystem.apiacitonsabstract.GetBookListApiAbstract;
 import starter.librarysystem.rest.RestRequestHelper;
-
-import java.lang.reflect.Type;
-import java.util.List;
 
 public class GetBookListApiAsRandomUserApiAction extends GetBookListApiAbstract {
     private static Response response;
