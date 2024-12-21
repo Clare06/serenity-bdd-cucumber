@@ -7,9 +7,8 @@ import net.serenitybdd.core.Serenity;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.ensure.Ensure;
-import net.serenitybdd.screenplay.questions.page.TheWebPage;
 import org.openqa.selenium.WebDriver;
-import starter.helpers.NavigateTo;
+import starter.helpers.navigations.NavigateTo;
 import starter.helpers.instagram.TargetButton;
 
 public class ClickInstagramStepDefinitions {
