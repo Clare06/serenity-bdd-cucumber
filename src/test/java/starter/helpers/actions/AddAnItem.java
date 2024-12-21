@@ -1,9 +1,10 @@
-package starter.helpers;
+package starter.helpers.actions;
 
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Enter;
 import org.openqa.selenium.Keys;
+import starter.helpers.pages.UOMPage;
 
 public class AddAnItem {
 
