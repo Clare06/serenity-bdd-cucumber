@@ -1,4 +1,4 @@
-package starter.librarysystem.availableapiacitons;
+package starter.librarysystem.apiacitonsabstract;
 
 import net.serenitybdd.core.steps.UIInteractions;
 import starter.librarysystem.rest.RestRequestHelper;

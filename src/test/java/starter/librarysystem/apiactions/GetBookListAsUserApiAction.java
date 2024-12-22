@@ -4,7 +4,7 @@ import com.google.gson.reflect.TypeToken;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import starter.librarysystem.availableapiacitons.GetBookListApiAbstract;
+import starter.librarysystem.apiacitonsabstract.GetBookListApiAbstract;
 import starter.librarysystem.dto.Book;
 import starter.librarysystem.rest.RestRequestHelper;
 
