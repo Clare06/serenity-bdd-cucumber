@@ -1,4 +1,4 @@
-package starter.helpers.pages;
+package starter.uitesting.helpers.pages;
 
 import net.serenitybdd.annotations.DefaultUrl;
 import net.serenitybdd.core.pages.PageObject;

@@ -1,4 +1,4 @@
-package starter.helpers.instagram;
+package starter.uitesting.helpers.instagram;
 
 import net.serenitybdd.screenplay.targets.Target;
 

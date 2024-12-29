@@ -7,5 +7,5 @@ Feature: Look for telephone directory
     Then She should see "Please click here for the internal user telephone directory" and current URL should be "https://uom.lk/telephone-directory"
     When She clicks here link
     Then She should see login page and warning message "Access denied. You must log in to view this page"
-    When She gives her credentials username "nishobancjc.20" password "#######" and clicks LOG IN button
+    When She gives her credentials clicks LOG IN button
     Then She should see the telephone directories pdf and header "Internal Telephone Directory"

@@ -1,4 +1,4 @@
-package starter.helpers.pages;
+package starter.uitesting.helpers.pages;
 
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.screenplay.targets.Target;

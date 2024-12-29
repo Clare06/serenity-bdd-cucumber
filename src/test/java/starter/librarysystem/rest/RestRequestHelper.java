@@ -6,7 +6,7 @@ import io.restassured.http.ContentType;
 
 public class RestRequestHelper {
 
-    private final String baseUri = "http://localhost:7081";
+    private final String baseUri = "http://nishovmlinux.centralindia.cloudapp.azure.com:7081";
     private final String endpoint;
 
     public RestRequestHelper(String endpoint) {

@@ -1,9 +1,9 @@
-package starter.helpers.navigations;
+package starter.uitesting.helpers.navigations;
 
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Open;
-import starter.helpers.pages.UOMITfacPage;
+import starter.uitesting.helpers.pages.UOMITfacPage;
 
 public class NavigateTo {
     public static Performable theSearchHomePage() {
