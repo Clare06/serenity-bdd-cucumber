@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        ENV_FILE = '.env'
+        SERENITY_CREDS = credentials('serenity-credentials-for-uom-login')
     }
     stages {
         stage('Clone Repository') {
@@ -12,31 +12,21 @@ pipeline {
         stage('Setup Environment') {
             steps {
                 script {
-                    withCredentials([
-                            usernamePassword(credentialsId: 'serenity-credentials-for-uom-login', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')
-                    ]) {
-                        def envContent = """
-                        USER=${USERNAME}
-                        PASSWORD=${PASSWORD}
-                        """
-                        writeFile file: ENV_FILE, text: envContent
-                    }
+                    def envContent = """
+                    USER=${SERENITY_CREDS_USR}
+                    PASSWORD=${SERENITY_CREDS_PSW}
+                    """
+                    writeFile file: '.env', text: envContent
                 }
             }
         }
-        stage('Verify Maven') {
-                    steps {
-                        sh 'cat .env'
-                        sh 'mvn -v'
-                    }
-                }
         stage('Run Serenity Tests') {
             steps {
                 sh 'mvn clean verify'
             }
         }
     }
-post {
+    post {
         always {
             publishHTML(target: [
                 allowMissing: false,
@@ -48,4 +38,3 @@ post {
         }
     }
 }
-
