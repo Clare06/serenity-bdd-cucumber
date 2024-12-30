@@ -25,6 +25,17 @@ pipeline {
                 sh 'mvn clean verify'
             }
         }
+
+        stage('Host Serenity Reports') {
+            steps {
+                script {
+                    sh 'fuser -k 8081/tcp || true'
+
+                    sh 'nohup python3 -m http.server 8081 --directory /var/lib/jenkins/workspace/Group04_Serenity_BDD_Cucumber_Build/target/site/serenity &'
+                }
+            }
+        }
+
     }
     post {
         always {

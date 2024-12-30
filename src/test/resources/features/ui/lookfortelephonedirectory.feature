@@ -1,4 +1,4 @@
-Feature: Look for telephone directory
+Feature: Look for telephone directory of UOM staffs
 
   @red
   Scenario: Looking for telephone directory
