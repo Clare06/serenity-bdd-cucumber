@@ -13,7 +13,7 @@ pipeline {
             steps {
                 script {
                     def envContent = """
-                    USER=${SERENITY_CREDS_USR}
+                    UOMUSER=${SERENITY_CREDS_USR}
                     PASSWORD=${SERENITY_CREDS_PSW}
                     """
                     writeFile file: '.env', text: envContent
@@ -28,13 +28,13 @@ pipeline {
     }
     post {
         always {
-            publishHTML(target: [
-                allowMissing: false,
-                keepAll: true,
-                reportDir: 'target/site/serenity',
-                reportFiles: 'index.html',
-                reportName: 'Serenity Report'
-            ])
+            publishHTML (target : [allowMissing: false,
+             alwaysLinkToLastBuild: true,
+             keepAll: true,
+             reportDir: 'target/site/serenity',
+             reportFiles: 'index.html',
+             reportName: 'Serenity Report',
+             reportTitles: 'The Test Report'])
         }
     }
 }

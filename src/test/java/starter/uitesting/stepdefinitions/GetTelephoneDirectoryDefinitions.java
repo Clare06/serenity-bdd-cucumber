@@ -53,9 +53,9 @@ public class GetTelephoneDirectoryDefinitions {
     }
     @When("{actor} gives her credentials clicks LOG IN button")
     public void giveHerCredentials(Actor actor) {
-        System.out.println("*********"+ getEnvData("USER") +"&&&&&&&&&&"+ getEnvData("PASSWORD"));
+        System.out.println("*********"+ getEnvData("UOMUSER") +"&&&&&&&&&&"+ getEnvData("PASSWORD"));
         actor.attemptsTo(
-                LogIn.withCredentials(getEnvData("USER"), getEnvData("PASSWORD"))
+                LogIn.withCredentials(getEnvData("UOMUSER"), getEnvData("PASSWORD"))
         );
     }
     @Then("{actor} should see the telephone directories pdf and header {string}")
