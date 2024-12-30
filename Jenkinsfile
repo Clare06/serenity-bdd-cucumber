@@ -26,6 +26,7 @@ pipeline {
         }
         stage('Verify Maven') {
                     steps {
+                        sh 'cat .env'
                         sh 'mvn -v'
                     }
                 }
