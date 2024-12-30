@@ -1,19 +1,17 @@
 pipeline {
     agent any
     environment {
-        ENV_FILE = '.env' // Define the .env file name
+        ENV_FILE = '.env'
     }
     stages {
         stage('Clone Repository') {
             steps {
-                // Clone the repository
                 checkout scm
             }
         }
         stage('Setup Environment') {
             steps {
                 script {
-                    // Fetch sensitive data using credentials
                     withCredentials([
                             usernamePassword(credentialsId: 'serenity-credentials-for-uom-login', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')
                     ]) {
@@ -21,23 +19,31 @@ pipeline {
                         USER=${USERNAME}
                         PASSWORD=${PASSWORD}
                         """
-                        writeFile file: ENV_FILE, text: envContent // Write to .env file
+                        writeFile file: ENV_FILE, text: envContent
                     }
                 }
             }
         }
+        stage('Verify Maven') {
+                    steps {
+                        sh 'mvn -v'
+                    }
+                }
         stage('Run Serenity Tests') {
             steps {
-                // Run Maven build
-                sh 'cat .env' // Debugging: Print the .env file (remove in production)
-                sh 'mvn clean verify' // Run Serenity tests
+                sh 'mvn clean verify'
             }
         }
     }
-    post {
+post {
         always {
-            // Archive Serenity reports
-            archiveArtifacts artifacts: '**/target/site/serenity/**', fingerprint: true
+            publishHTML(target: [
+                allowMissing: false,
+                keepAll: true,
+                reportDir: 'target/site/serenity',
+                reportFiles: 'index.html',
+                reportName: 'Serenity Report'
+            ])
         }
     }
 }
