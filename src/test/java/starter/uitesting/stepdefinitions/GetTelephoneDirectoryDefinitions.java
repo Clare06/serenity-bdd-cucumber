@@ -53,7 +53,6 @@ public class GetTelephoneDirectoryDefinitions {
     }
     @When("{actor} gives her credentials clicks LOG IN button")
     public void giveHerCredentials(Actor actor) {
-        System.out.println("*********"+ getEnvData("UOMUSER") +"&&&&&&&&&&"+ getEnvData("PASSWORD"));
         actor.attemptsTo(
                 LogIn.withCredentials(getEnvData("UOMUSER"), getEnvData("PASSWORD"))
         );
