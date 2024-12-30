@@ -26,6 +26,7 @@ pipeline {
         }
         stage('Verify Maven') {
                     steps {
+                        sh 'cat .env'
                         sh 'mvn -v'
                     }
                 }
@@ -41,7 +42,7 @@ post {
                 allowMissing: false,
                 keepAll: true,
                 reportDir: 'target/site/serenity',
-                reportFiles: '**/*.html',
+                reportFiles: 'index.html',
                 reportName: 'Serenity Report'
             ])
         }
