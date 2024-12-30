@@ -41,7 +41,7 @@ post {
                 allowMissing: false,
                 keepAll: true,
                 reportDir: 'target/site/serenity',
-                reportFiles: '**/*.html',
+                reportFiles: 'index.html',
                 reportName: 'Serenity Report'
             ])
         }
