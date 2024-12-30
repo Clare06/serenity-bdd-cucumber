@@ -1,4 +1,4 @@
-package starter.stepdefinitions;
+package starter.uitesting.stepdefinitions;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -6,8 +6,8 @@ import io.cucumber.java.en.When;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.ensure.Ensure;
 import net.serenitybdd.screenplay.questions.page.TheWebPage;
-import starter.helpers.navigations.NavigateTo;
-import starter.helpers.search.LookForInformation;
+import starter.uitesting.helpers.navigations.NavigateTo;
+import starter.uitesting.helpers.search.LookForInformation;
 
 public class SearchStepDefinitions {
     @Given("{actor} is researching things on UOM website")

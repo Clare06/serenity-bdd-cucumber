@@ -1,4 +1,4 @@
-package starter.helpers.forms;
+package starter.uitesting.helpers.forms;
 
 import net.serenitybdd.screenplay.targets.Target;
 

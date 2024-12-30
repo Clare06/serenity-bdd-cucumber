@@ -1,4 +1,4 @@
-package starter.stepdefinitions;
+package starter.uitesting.stepdefinitions;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -8,11 +8,12 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.ensure.Ensure;
 import net.serenitybdd.screenplay.questions.page.TheWebPage;
 import net.serenitybdd.screenplay.waits.WaitUntil;
-import starter.helpers.actions.LogIn;
-import starter.helpers.navigations.NavigateTo;
-import starter.helpers.pages.UOMITfacPage;
+import starter.uitesting.helpers.actions.LogIn;
+import starter.uitesting.helpers.navigations.NavigateTo;
+import starter.uitesting.helpers.pages.UOMITfacPage;
 
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
+import static starter.testsetup.GlobalTestSetUp.getEnvData;
 
 public class GetTelephoneDirectoryDefinitions {
     @Given("{actor} is looking for telephone directory of academic staffs")
@@ -50,10 +51,10 @@ public class GetTelephoneDirectoryDefinitions {
                 Ensure.that(TheWebPage.source()).containsIgnoringCase(message)
         );
     }
-    @When("{actor} gives her credentials username {string} password {string} and clicks LOG IN button")
-    public void giveHerCredentials(Actor actor, String username, String password) {
+    @When("{actor} gives her credentials clicks LOG IN button")
+    public void giveHerCredentials(Actor actor) {
         actor.attemptsTo(
-                LogIn.withCredentials(username, password)
+                LogIn.withCredentials(getEnvData("USER"), getEnvData("PASSWORD"))
         );
     }
     @Then("{actor} should see the telephone directories pdf and header {string}")
