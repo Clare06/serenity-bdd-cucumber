@@ -1,5 +1,5 @@
 
-Feature: Search book list in library as User role
+Feature: Search book list in library system as User role
 
   Scenario: Searching book list in library as an user role
     Given The get book list API is available and running
