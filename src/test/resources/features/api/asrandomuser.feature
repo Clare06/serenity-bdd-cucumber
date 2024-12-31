@@ -1,5 +1,5 @@
 
-Feature: Search book list in library as Random User role
+Feature: Search book list in library system as Random User role
 
   Scenario: Searching book list in library as a random user role
     Given The library get book list API is available and running for authorized user
