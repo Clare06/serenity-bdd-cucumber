@@ -14,4 +14,18 @@ public class UOMITfacPage extends PageObject {
     public static final Target INTERNAL_TELEPHONE_DIRECTORY_LINK = Target.the("internal telephone directory link")
             .locatedBy("//a[contains(@href, '/internal-telephone-directory')]");
 
+
+    // Komuthu
+    // Added for VerifyHomePage test
+    public String getPageTitle() {
+        return getDriver().getTitle(); // Retrieves the title from the current WebDriver instance
+    }
+
+    public static final Target MAIN_BANNER = Target.the("main banner").locatedBy(".tp-bgimg");
+    public static final Target NAVIGATION_MENU_ITEM = Target.the("{0} navigation menu item")
+        .locatedBy(".sf-main-menu-faculty-it li a");
+
+
+
+
 }
