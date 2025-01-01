@@ -3,13 +3,13 @@ package starter.librarysystem.dto;
 public class Book {
     private String title;
     private String author;
-    private Long id;
+    private Integer id;
 
     public Book() {
 
     }
 
-    public Book(String title, String author, Long id) {
+    public Book(Integer id, String title, String author) {
         this.title = title;
         this.author = author;
         this.id = id;
@@ -36,11 +36,11 @@ public class Book {
         this.author = author;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 }

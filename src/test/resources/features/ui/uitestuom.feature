@@ -1,3 +1,4 @@
+@ui
 Feature: Select Instagram
 
   @green
