@@ -4,6 +4,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.response.Response;
+import starter.librarysystem.api.ApiUtil;
 import starter.librarysystem.apiacitonsabstract.GetBookListApiAbstract;
 import starter.librarysystem.rest.RestRequestHelper;
 
@@ -18,10 +19,8 @@ public class GetBookListApiAsRandomUserApiAction extends GetBookListApiAbstract 
     @When("As a random user fetch the book list")
     public void fetchBookList() {
 
-//        Type bookListType = new TypeToken<List<Book>>() {}.getType();
-        RestRequestHelper restHelper = new RestRequestHelper("/api/books/");
-
-        response = restHelper.sendRequest("GET", null, "reyon","password");
+        ApiUtil util = new ApiUtil();
+        response = util.asNonAuthorized().getResponseOfFetchBookList();
 
     }
 

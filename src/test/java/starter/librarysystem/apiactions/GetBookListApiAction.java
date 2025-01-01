@@ -4,6 +4,7 @@ import com.google.gson.reflect.TypeToken;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import starter.librarysystem.api.ApiUtil;
 import starter.librarysystem.apiacitonsabstract.GetBookListApiAbstract;
 import starter.librarysystem.dto.Book;
 import starter.librarysystem.rest.RestRequestHelper;
@@ -22,10 +23,8 @@ public class GetBookListApiAction extends GetBookListApiAbstract {
     @When("I fetch the book list")
     public void fetchBookList() {
 
-        Type bookListType = new TypeToken<List<Book>>() {}.getType();
-        RestRequestHelper restHelper = new RestRequestHelper("/api/books/");
-
-        bookList = restHelper.sendRequest("GET", null, "admin","password").body().as(bookListType);
+        ApiUtil util = new ApiUtil();
+        bookList = util.asAdmin().fetchBookList();
 
     }
 
