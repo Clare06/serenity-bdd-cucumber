@@ -82,6 +82,13 @@ public class ApiUtil {
         return executeRequest("PUT", bookTest);
     }
 
+    public Response getResponseOfDeleteBook() {
+        if (!isIdProvided) {
+            throw new UnsupportedOperationException("getBookById can only be accessed when constructed with an ID.");
+        }
+        return executeRequest("DELETE", null);
+    }
+
     private Response executeRequest(String method, Object body) {
         switch (accessType) {
             case "asAdmin":
