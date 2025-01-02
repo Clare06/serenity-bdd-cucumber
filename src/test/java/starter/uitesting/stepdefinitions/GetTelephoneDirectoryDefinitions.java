@@ -16,10 +16,10 @@ import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisi
 import static starter.testsetup.GlobalTestSetUp.getEnvData;
 
 public class GetTelephoneDirectoryDefinitions {
-    @Given("{actor} is looking for telephone directory of academic staffs")
-    public void lookingTelephoneDirectory(Actor actor) {
-        actor.wasAbleTo(NavigateTo.theSearchHomePage());
-    }
+//    @Given("{actor} is looking for telephone directory of academic staffs")
+//    public void lookingTelephoneDirectory(Actor actor) {
+//        actor.wasAbleTo(NavigateTo.theSearchHomePage());
+//    }
 
     @When("{actor} scrolls down and click telephone directory link")
     public void scrollDownAndClickTelephoneDirectoryLink(Actor actor) {

@@ -12,10 +12,10 @@ import starter.uitesting.helpers.navigations.NavigateTo;
 import starter.uitesting.helpers.instagram.TargetButton;
 
 public class ClickInstagramStepDefinitions {
-    @Given("{actor} wants to go to UOM instagram page")
-    public void lookingForInstagaram(Actor actor) {
-        actor.wasAbleTo(NavigateTo.theSearchHomePage());
-    }
+//    @Given("{actor} wants to go to UOM instagram page")
+//    public void lookingForInstagaram(Actor actor) {
+//        actor.wasAbleTo(NavigateTo.theSearchHomePage());
+//    }
 
     @When("{actor} clicks Instagram icon")
     public void clickingInstagram(Actor actor) {

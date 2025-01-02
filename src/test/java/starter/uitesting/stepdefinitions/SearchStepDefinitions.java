@@ -10,10 +10,10 @@ import starter.uitesting.helpers.navigations.NavigateTo;
 import starter.uitesting.helpers.search.LookForInformation;
 
 public class SearchStepDefinitions {
-    @Given("{actor} is researching things on UOM website")
-    public void researchingThings(Actor actor) {
-        actor.wasAbleTo(NavigateTo.theSearchHomePage());
-    }
+//    @Given("{actor} is researching things on UOM website")
+//    public void researchingThings(Actor actor) {
+//        actor.wasAbleTo(NavigateTo.theSearchHomePage());
+//    }
 
     @When("{actor} looks up {string}")
     public void searchesFor(Actor actor, String term) {

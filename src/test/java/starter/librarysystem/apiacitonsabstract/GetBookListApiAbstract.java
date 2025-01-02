@@ -22,7 +22,7 @@ public abstract class GetBookListApiAbstract extends UIInteractions {
             case "user":
                 result.setBookList(util.asUser().fetchBookList());
                 break;
-            case "random user":
+            case "unauthorized user":
                 result.setResponse(util.asNonAuthorized().getResponseOfFetchBookList());
                 break;
             default:
