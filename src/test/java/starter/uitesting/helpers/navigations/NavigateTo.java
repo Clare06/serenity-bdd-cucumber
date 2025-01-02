@@ -16,4 +16,9 @@ public class NavigateTo {
         return Task.where("{0} opens the UOM home page",
                 Open.browserOn().the(UOMPage.class));
     }
+
+    public static Performable theUOMReserachPage() {
+        return Task.where("{0} opens the UOM home page",
+                Open.browserOn().the(UOMPage.class));
+    }
 }
