@@ -6,19 +6,21 @@ import io.cucumber.java.en.When;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.ensure.Ensure;
+import net.serenitybdd.screenplay.questions.TextContent;
 import starter.uitesting.helpers.navigations.NavigateTo;
-import starter.uitesting.helpers.courses.TargetButton;
+import starter.uitesting.helpers.research.TargetButton;
+import starter.uitesting.helpers.research.TargetHeading;
 
 public class ClickMoreReserach {
     @Given("{actor} is on the Research page of the UOM website")
-    public void shakilaIsOnTheResearchPage(Actor actor) {
-        actor.attemptsTo(NavigateTo.theResearchPage());
+    public void IsOnTheResearchPage(Actor actor) {
+        actor.attemptsTo(NavigateTo.theUOMReserachPage());
     }
 
     @When("{actor} clicks the More button")
-    public void heClicksTheMoreButton(Actor actor {
+    public void heClicksTheMoreButton(Actor actor) {
         actor.attemptsTo(
-                Click.on(ResearchPage.MORE_BUTTON)
+                Click.on(TargetButton.MORE_BUTTON)
         );
     }
 
@@ -30,9 +32,11 @@ public class ClickMoreReserach {
     }
 
     @Then("the page should contain the heading {string}")
-    public void thePageShouldContainTheHeading(String expectedHeading) {
-        shakila.attemptsTo(
-                Ensure.that(Text.of(ResearchPage.RESEARCH_HEADING)).isEqualTo(expectedHeading)
+    public void thePageShouldContainTheHeading(Actor actor, String expectedHeading) {
+        String actualHeading = actor.asksFor(TextContent.of(TargetHeading.RESEARCH_HEADING));
+
+        actor.attemptsTo(
+                Ensure.that(actualHeading).isEqualTo(expectedHeading)
         );
     }
 
