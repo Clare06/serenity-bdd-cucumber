@@ -1,4 +1,4 @@
-package starter.uitesting.stepdefinitions;
+package starter.uitesting.stepdefinitions.parameterdefinition;
 
 import io.cucumber.java.Before;
 import io.cucumber.java.ParameterType;
@@ -13,7 +13,7 @@ public class ParameterDefinitions {
         return OnStage.theActorCalled(actorName);
     }
 
-    @Before
+    @Before("@ui")
     public void setTheStage() {
         OnStage.setTheStage(new OnlineCast());
     }
