@@ -9,11 +9,31 @@ public class RestRequestHelper {
     private final String baseUri = "http://nishovmlinux.centralindia.cloudapp.azure.com:7081";
     private final String endpoint;
 
-    public RestRequestHelper(String endpoint) {
-        this.endpoint = endpoint;
+    public RestRequestHelper() {
+        this.endpoint = "/api/books/";
     }
 
-    public Response sendRequest(String method, Object body, String username, String password) {
+    public RestRequestHelper(Integer id) {
+        this.endpoint = enpointConstructor(id);
+    }
+
+    public Response sendAsAdmin (String method, Object body) {
+        return this.sendRequest(method, body, "admin", "password");
+    }
+
+    public Response sendAsUser (String method, Object body) {
+        return this.sendRequest(method, body, "user", "password");
+    }
+
+    public Response sendAsNotAuthorizedUser (String method, Object body) {
+        return this.sendRequest(method, body, "hacker", "password");
+    }
+
+    private String enpointConstructor (Integer id) {
+        return "/api/books/" + id;
+    };
+
+    private Response sendRequest(String method, Object body, String username, String password) {
 
         switch (method.toUpperCase()) {
             case "GET":
