@@ -16,7 +16,7 @@ public class UOMITfacPage extends PageObject {
 
 
     // Komuthu
-    // Added for VerifyHomePage test
+    // VerifyHomePage test
     public String getPageTitle() {
         return getDriver().getTitle(); // Retrieves the title from the current WebDriver instance
     }
@@ -25,6 +25,24 @@ public class UOMITfacPage extends PageObject {
     public static final Target NAVIGATION_MENU_ITEM = Target.the("{0} navigation menu item")
         .locatedBy(".sf-main-menu-faculty-it li a");
 
+
+    // Verify HomePage Responsiveness
+    // Locators for elements
+//    public static final Target MAIN_BANNER = Target.the("main banner")
+//            .locatedBy(".tp-bgimg");
+//    public static final Target HAMBURGER_MENU = Target.the("hamburger menu")
+//            .locatedBy(".sf-accordion-toggle");
+//    public static final Target NAVIGATION_BAR = Target.the("navigation bar")
+//            .locatedBy(".sf-main-menu-faculty-it");
+//    public static final Target NAVIGATION_MENU_ITEMS = Target.the("navigation menu items")
+//            .locatedBy(".sf-main-menu-faculty-it li a");
+//    public static final Target FOOTER = Target.the("footer")
+//            .locatedBy("footer");
+
+    // Utility method to check if the footer is stacked
+//    public boolean footerIsStacked() {
+//        return FOOTER.resolveFor(getDriver()).getCssValue("flex-direction").equals("column");
+//    }
 
 
 
