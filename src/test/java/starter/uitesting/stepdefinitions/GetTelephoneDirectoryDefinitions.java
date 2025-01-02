@@ -1,6 +1,5 @@
 package starter.uitesting.stepdefinitions;
 
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.serenitybdd.screenplay.Actor;
@@ -9,17 +8,12 @@ import net.serenitybdd.screenplay.ensure.Ensure;
 import net.serenitybdd.screenplay.questions.page.TheWebPage;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import starter.uitesting.helpers.actions.LogIn;
-import starter.uitesting.helpers.navigations.NavigateTo;
 import starter.uitesting.helpers.pages.UOMITfacPage;
 
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 import static starter.testsetup.GlobalTestSetUp.getEnvData;
 
 public class GetTelephoneDirectoryDefinitions {
-    @Given("{actor} is looking for telephone directory of academic staffs")
-    public void lookingTelephoneDirectory(Actor actor) {
-        actor.wasAbleTo(NavigateTo.theSearchHomePage());
-    }
 
     @When("{actor} scrolls down and click telephone directory link")
     public void scrollDownAndClickTelephoneDirectoryLink(Actor actor) {

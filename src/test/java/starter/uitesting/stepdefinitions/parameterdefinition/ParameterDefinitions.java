@@ -1,4 +1,4 @@
-package starter.uitesting.stepdefinitions;
+package starter.uitesting.stepdefinitions.parameterdefinition;
 
 import io.cucumber.java.Before;
 import io.cucumber.java.ParameterType;

@@ -3,7 +3,7 @@ Feature: Look for telephone directory of UOM staffs
 
   @red
   Scenario: Looking for telephone directory
-    Given Gimhani is looking for telephone directory of academic staffs
+    Given Gimhani is in UOM IT Faculty page
     When She scrolls down and click telephone directory link
     Then She should see "Please click here for the internal user telephone directory" and current URL should be "https://uom.lk/telephone-directory"
     When She clicks here link
