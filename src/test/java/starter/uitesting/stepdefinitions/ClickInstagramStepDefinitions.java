@@ -1,6 +1,5 @@
 package starter.uitesting.stepdefinitions;
 
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.serenitybdd.core.Serenity;
@@ -8,14 +7,9 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.ensure.Ensure;
 import org.openqa.selenium.WebDriver;
-import starter.uitesting.helpers.navigations.NavigateTo;
 import starter.uitesting.helpers.instagram.TargetButton;
 
 public class ClickInstagramStepDefinitions {
-//    @Given("{actor} wants to go to UOM instagram page")
-//    public void lookingForInstagaram(Actor actor) {
-//        actor.wasAbleTo(NavigateTo.theSearchHomePage());
-//    }
 
     @When("{actor} clicks Instagram icon")
     public void clickingInstagram(Actor actor) {
