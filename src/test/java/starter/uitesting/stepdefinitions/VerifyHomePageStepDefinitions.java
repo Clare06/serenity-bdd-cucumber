@@ -11,10 +11,10 @@ import starter.uitesting.helpers.pages.UOMITfacPage;
 
 public class VerifyHomePageStepDefinitions {
 
-    @Given("{actor} wants to view the IT Faculty homepage")
-    public void openITFacultyHomepage(Actor actor) {
-        actor.wasAbleTo(NavigateTo.theSearchHomePage());
-    }
+//    @Given("{actor} wants to view the IT Faculty homepage")
+//    public void openITFacultyHomepage(Actor actor) {
+//        actor.wasAbleTo(NavigateTo.theSearchHomePage());
+//    }
 
     @When("{actor} opens the IT Faculty homepage")
     public void navigateToITFacultyHomepage(Actor actor) {

@@ -13,10 +13,10 @@ import starter.uitesting.helpers.pages.UOMITfacPage;
 import starter.uitesting.helpers.navigations.NavigateTo;
 
 public class NewsletterSubscribeStepDefinitions {
-    @Given("{actor} wants to subscribe to the IT Faculty newsletter")
-    public void openSubscriptionPage(Actor actor) {
-        actor.wasAbleTo(NavigateTo.theSearchHomePage());
-    }
+//    @Given("{actor} wants to subscribe to the IT Faculty newsletter")
+//    public void openSubscriptionPage(Actor actor) {
+//        actor.wasAbleTo(NavigateTo.theSearchHomePage());
+//    }
 
     @When("{actor} enters {string} in the subscription field")
     public void enterEmailInSubscriptionField(Actor actor, String email) {
