@@ -1,3 +1,4 @@
+@ui
 Feature: Navigate to Research Unit Page
 
   @research
