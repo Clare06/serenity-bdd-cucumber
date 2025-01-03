@@ -1,6 +1,6 @@
-#Feature: Search book list in library system as User role with book id
-#
-#  Scenario: Searching book list in library as an user role
-#    Given The get book list API is available and running
-#    When As an user fetch the book list
-#    Then He should receive a list of books
+Feature: Search book in library system as User role with book id
+@searchByIdAsUser
+  Scenario: Searching book  in library as an user role
+#    Given Given that book is available in library with title "Jenkins Tutorial" and author "Reyon"
+    When As an user fetch the book with its id.
+    Then He should receive the book with title "Jenkins Tutorial"

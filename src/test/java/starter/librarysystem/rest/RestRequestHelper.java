@@ -15,6 +15,7 @@ public class RestRequestHelper {
 
     public RestRequestHelper(Integer id) {
         this.endpoint = enpointConstructor(id);
+        System.out.println("**************"+ this.endpoint);
     }
 
     public Response sendAsAdmin (String method, Object body) {
