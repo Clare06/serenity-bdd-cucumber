@@ -83,9 +83,9 @@ public class ApiUtil {
     }
 
     public Response getResponseOfDeleteBook() {
-        if (!isIdProvided) {
-            throw new UnsupportedOperationException("getBookById can only be accessed when constructed with an ID.");
-        }
+//        if (!isIdProvided) {
+//            throw new UnsupportedOperationException("getBookById can only be accessed when constructed with an ID.");
+//        }
         return executeRequest("DELETE", null);
     }
 

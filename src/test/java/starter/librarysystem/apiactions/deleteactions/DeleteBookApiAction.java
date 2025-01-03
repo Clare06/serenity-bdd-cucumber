@@ -16,12 +16,22 @@ public class DeleteBookApiAction extends DeleteBookAbstract {
 
     @When("I delete the book as a {string}")
     public void deleteBookWithRole(String role){
-        deleteBook(role);
+        deleteBookByRole(role);
     }
 
-    @Then("I should receive delete {string}")
-    public void heShouldReceiveTheBookWithTitle(String outcome){
-        verifyDeleteBook(outcome);
+    @Then("I should receive {string} for {string}")
+    public void heShouldReceiveTheBookWithTitle(String outcome, String role){
+        verifyDeleteBook(role,outcome);
+    }
+
+    @When("I delete a nonexistent book as a {string}")
+    public void deleteNonExistentBook(String role){
+        deleteBook(role, 99999999);
+    }
+
+    @When("I delete a book without a providing a book id as a {string}")
+    public void deleteBookWithoutId(String role){
+        deleteBookWithNoId(role);
     }
 
 }
