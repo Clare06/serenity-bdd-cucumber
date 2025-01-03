@@ -1,13 +1,12 @@
 package starter.librarysystem.apiacitonsabstract;
 
-import com.fasterxml.jackson.core.JsonParseException;
 import io.restassured.response.Response;
 import net.serenitybdd.core.steps.UIInteractions;
 import starter.librarysystem.api.ApiUtil;
 import starter.librarysystem.dto.Book;
 
 import static starter.librarysystem.apiactions.fetchactions.GetBookWithIdApiAction.responseResultUnauthorizedBookFetchWithID;
-import static starter.librarysystem.apiactions.preactions.GetBookWithIdPreAction.globalBookToTest;
+import static starter.librarysystem.apiactions.preactions.PreAction.globalBookToTest;
 
 public class GetBookWithIdAbstract extends UIInteractions {
     protected Book fetchBook(Integer id, String role) {
