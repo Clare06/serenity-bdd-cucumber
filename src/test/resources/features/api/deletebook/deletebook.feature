@@ -6,6 +6,11 @@ Feature: Delete a book from the database
 
     Examples:
       | role              | outcome                 |
-      | admin             | status code 200         |
+      | admin             | status 200              |
       | user              | forbidden 403           |
-      | unauthorized      | unauthorized code 401   |
+      | unauthorized      | unauthorized 401        |
+
+
+    Scenario: Delete a nonexistent book
+      When I delete a nonexistent book
+      Then I should receive delete "not found 404"

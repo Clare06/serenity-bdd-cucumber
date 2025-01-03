@@ -7,12 +7,28 @@ import static starter.librarysystem.apiactions.preactions.PreAction.globalBookTo
 
 public abstract class DeleteBookAbstract extends UIInteractions {
 
-    protected void deleteBook(String role) {
-        getResponseByRole(role);
+    protected void deleteBookByRole(String role){
+        switch (role.toLowerCase()){
+            case "admin":
+                deleteBook("admin", globalBookToDelete.get(0).getId());
+                break;
+            case "user":
+                deleteBook("user", globalBookToDelete.get(1).getId());
+                break;
+            case "unauthorized":
+                deleteBook("unauthorized", globalBookToDelete.get(2).getId());
+                break;
+            default:
+                throw new IllegalArgumentException("Invalid role: " + role);
+        }
+    }
+
+    protected void deleteBook(String role, int id) {
+        getResponseByRole(role, id);
     }
 
     protected void verifyDeleteBook(String outcome) {
-        if(outcome.equalsIgnoreCase("unauthorized code 401")){
+        if(outcome.equalsIgnoreCase("unauthorized 401")){
             if (deleteBookApiResult.getResponseUnauthorized().statusCode() != 401){
                 throw new AssertionError("Unexpected response code: " + deleteBookApiResult.getResponseUnauthorized().statusCode());
             }
@@ -22,26 +38,29 @@ public abstract class DeleteBookAbstract extends UIInteractions {
                 throw new AssertionError("Unexpected response code: " + deleteBookApiResult.getResponseUser().statusCode());
             }
             System.out.println("He received " + outcome);
+        } else if(outcome.equalsIgnoreCase("not found 404")){
+            if (deleteBookApiResult.getResponseUser().statusCode() != 404){
+                throw new AssertionError("Unexpected response code: " + deleteBookApiResult.getResponseUser().statusCode());
+            }
+            System.out.println("He received " + outcome);
         } else{
             if(deleteBookApiResult.getResponseAdmin().statusCode() != 200) {
-                throw new AssertionError("Book deleted successfully" + outcome);
+                throw new AssertionError("Unexpected response code: " + deleteBookApiResult.getResponseUser().statusCode());
             }
-            System.out.println("Book deleted successfully: " + globalBookToDelete.get(1).getTitle() + " book deleted.");
+            System.out.println("Book deleted successfully");
         }
     }
-    private void getResponseByRole(String role) {
-        ApiUtil apiUtilForUser = new ApiUtil(globalBookToDelete.get(0).getId());
-        ApiUtil apiUtilForAdmin = new ApiUtil(globalBookToDelete.get(1).getId());
-        ApiUtil apiUtilForUnauthorized = new ApiUtil(globalBookToDelete.get(2).getId());
+    private void getResponseByRole(String role, int id) {
+        ApiUtil apiUtil = new ApiUtil(id);
         switch (role.toLowerCase()) {
             case "user":
-                deleteBookApiResult.setResponseUser(apiUtilForUser.asUser().getResponseOfDeleteBook());
+                deleteBookApiResult.setResponseUser(apiUtil.asUser().getResponseOfDeleteBook());
                 break;
             case "admin":
-                deleteBookApiResult.setResponseAdmin(apiUtilForAdmin.asAdmin().getResponseOfDeleteBook());
+                deleteBookApiResult.setResponseAdmin(apiUtil.asAdmin().getResponseOfDeleteBook());
                 break;
             case "unauthorized":
-                deleteBookApiResult.setResponseUnauthorized(apiUtilForUnauthorized.asNonAuthorized().getResponseOfDeleteBook());
+                deleteBookApiResult.setResponseUnauthorized(apiUtil.asNonAuthorized().getResponseOfDeleteBook());
                 break;
             default:
                 throw new IllegalArgumentException("Invalid role: " + role);
