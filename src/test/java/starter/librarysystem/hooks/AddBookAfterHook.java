@@ -1,10 +1,9 @@
 package starter.librarysystem.hooks;
 
-import io.cucumber.java.After;
 import io.cucumber.java.AfterAll;
-import io.cucumber.java.Scenario;
 import starter.librarysystem.api.ApiUtil;
 import static starter.librarysystem.apiactions.insertactions.InsertBookApiAction.insertBookApiResult;
+import static starter.librarysystem.apiactions.preactions.GetBookWithIdPreAction.globalBookToTest;
 
 public class AddBookAfterHook {
 
@@ -23,6 +22,7 @@ public class AddBookAfterHook {
     public static void cleanUpAddedData() {
         deleteBookById(insertBookApiResult.getBook().getId());
         deleteBookById(insertBookApiResult.getBook2().getId());
+        deleteBookById(globalBookToTest.getId());
     }
 
     private static void deleteBookById(Integer bookId) {
