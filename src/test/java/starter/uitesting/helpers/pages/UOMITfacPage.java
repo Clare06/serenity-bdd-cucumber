@@ -15,6 +15,10 @@ public class UOMITfacPage extends PageObject {
                 return DIVISIONS_MENU;
             case "about us":
                 return ABOUT_US_MENU;
+            case "schedules":
+                return SCHEDULES_MENU;
+            case "curriculum":
+                return CURRICULUM_MENU;
             default:
                 throw new IllegalArgumentException("Unknown menu: " + menuName);
         }
@@ -42,6 +46,11 @@ public class UOMITfacPage extends PageObject {
     public static final Target ACADEMIC_CALENDAR_LINK = Target.the("Academic calendar link")
             .locatedBy("//a[contains(@href, 'https://dms.uom.lk/s/JY5tcRR2g89ncGe?dir=undefined&openfile=40460036')]");
 
+    public static final Target CURRICULUM_MENU = Target.the("Curriculum menu")
+            .located(By.id("main-menu-menu-link-content20aa3286-c546-4bcb-9007-f851c7826c82"));
+
+    public static final Target SCHEDULES_MENU = Target.the("Schedules menu")
+            .located(By.id("main-menu-menu-link-content542a697c-c45d-47c3-a120-2640fc947ba7"));
     public static final Target EMAIL_LINK = Target.the("info-fit@uom.lk email link")
             .locatedBy("//div[contains(@class,'text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item')]//*[text()='info-fit@uom.lk']");
 
