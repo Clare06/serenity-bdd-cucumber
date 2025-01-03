@@ -1,5 +1,5 @@
 @ui
-Feature: Hover over dropdown and select an option
+Feature: Check the exam timetables
 
   Scenario: User selects an option from the dropdown
     Given "Gimhani" is in UOM IT Faculty page
