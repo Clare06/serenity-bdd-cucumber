@@ -5,8 +5,7 @@ import starter.librarysystem.api.ApiUtil;
 import starter.librarysystem.dto.Book;
 
 import static starter.librarysystem.apiactions.insertactions.InsertBookApiAction.insertBookApiResult;
-import static starter.librarysystem.apiactions.preactions.PreAction.globalBookToDelete;
-import static starter.librarysystem.apiactions.preactions.PreAction.globalBookToTest;
+import static starter.librarysystem.apiactions.preactions.PreAction.*;
 
 public class AddBookAfterHook {
 
@@ -23,12 +22,22 @@ public class AddBookAfterHook {
 //    }
     @AfterAll
     public static void cleanUpAddedData() {
+
+        //for book with id
         deleteBookById(insertBookApiResult.getBook().getId());
         deleteBookById(insertBookApiResult.getBook2().getId());
         deleteBookById(globalBookToTest.getId());
+
+        // for  delete
         for (Book book : globalBookToDelete){
             deleteBookById(book.getId());
         }
+
+        //for update
+        for (Book book1 : globalBookToUpdate){
+            deleteBookById(book1.getId());
+        }
+
     }
 
     private static void deleteBookById(Integer bookId) {
