@@ -83,9 +83,9 @@ public class ApiUtil {
     }
 
     public Response getResponseOfDeleteBook() {
-        if (!isIdProvided) {
-            throw new UnsupportedOperationException("getBookById can only be accessed when constructed with an ID.");
-        }
+//        if (!isIdProvided) {
+//            throw new UnsupportedOperationException("getBookById can only be accessed when constructed with an ID.");
+//        }
         return executeRequest("DELETE", null);
     }
 
@@ -99,11 +99,6 @@ public class ApiUtil {
             default:
                 return restRequestHelper.sendAsNotAuthorizedUser(method, body);
         }
-    }
-    public Book updateBookName(String newBookName) {
-        Book book = fetchBookList().get(0);
-        book.setTitle(newBookName);
-        return updateBook(book);
     }
 
 }

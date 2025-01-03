@@ -4,22 +4,31 @@ import starter.librarysystem.dto.Book;
 import io.restassured.response.Response;
 
 public class UpdateBookNameApiResult {
-    private Book book;
-    private Response response;
+    private Response responseAsNotAuthorized;
+    private Response responseAsUser;
+    private Response responseAsAdmin;
 
-    public Book getBook() {
-        return book;
+    public Response getResponseAsNotAuthorized() {
+        return responseAsNotAuthorized;
     }
 
-    public void setBook(Book book) {
-        this.book = book;
+    public void setResponseAsNotAuthorized(Response responseAsNotAuthorized) {
+        this.responseAsNotAuthorized = responseAsNotAuthorized;
     }
 
-    public Response getResponse() {
-        return response;
+    public Response getResponseAsUser() {
+        return responseAsUser;
     }
 
-    public void setResponse(Response response) {
-        this.response = response;
+    public void setResponseAsUser(Response responseAsUser) {
+        this.responseAsUser = responseAsUser;
+    }
+
+    public Response getResponseAsAdmin() {
+        return responseAsAdmin;
+    }
+
+    public void setResponseAsAdmin(Response responseAsAdmin) {
+        this.responseAsAdmin = responseAsAdmin;
     }
 }

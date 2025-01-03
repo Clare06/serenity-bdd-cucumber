@@ -1,5 +1,5 @@
 @ui
-Feature: Hover over dropdown and select an option
+Feature: Check the academic calender
 
   Scenario: User selects an option from the dropdown
     Given "Harini" is in UOM IT Faculty page
