@@ -20,7 +20,7 @@ public class FindCalenderStepDefinitions {
 
     @When("the user hovers over the {string} menu")
     public void userHoversOverMenu(String menu) {
-        theActorInTheSpotlight().attemptsTo(Hover.over(UOMITfacPage.DIVISIONS_MENU));
+        theActorInTheSpotlight().attemptsTo(Hover.over(UOMITfacPage.menu(menu)));
     }
 
     @And("selects {string} from the dropdown")
@@ -38,12 +38,6 @@ public class FindCalenderStepDefinitions {
         actor.attemptsTo(
                 WaitUntil.the(UOMITfacPage.ACADEMIC_CALENDAR_LINK, isVisible()).forNoMoreThan(10).seconds(),
                 Click.on(UOMITfacPage.ACADEMIC_CALENDAR_LINK)
-        );
-    }
-    @Then("{actor} should see the url contains {string}")
-    public void userShouldSeeCalendar(Actor actor, String url) {
-        actor.attemptsTo(
-                Ensure.that(TheWebPage.currentUrl()).containsIgnoringCase(url)
         );
     }
 }
