@@ -40,10 +40,4 @@ public class FindCalenderStepDefinitions {
                 Click.on(UOMITfacPage.ACADEMIC_CALENDAR_LINK)
         );
     }
-    @Then("{actor} should see the url contains {string}")
-    public void userShouldSeeCalendar(Actor actor, String url) {
-        actor.attemptsTo(
-                Ensure.that(TheWebPage.currentUrl()).containsIgnoringCase(url)
-        );
-    }
 }
