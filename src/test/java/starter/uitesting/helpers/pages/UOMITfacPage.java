@@ -10,7 +10,20 @@ import net.serenitybdd.annotations.DefaultUrl;
 
 @DefaultUrl("https://uom.lk/itfac")
 public class UOMITfacPage extends PageObject {
+
+    public static Target menu(String menuName) {
+        switch (menuName.toLowerCase()) {
+            case "divisions":
+                return DIVISIONS_MENU;
+            case "about us":
+                return ABOUT_US_MENU;
+            default:
+                throw new IllegalArgumentException("Unknown menu: " + menuName);
+        }
+    }
+
     public static Target ITEM_NAME_FIELD = Target.the("item name field").locatedBy(".is-active sf-depth-1");
+
     public static final Target TELEPHONE_DIRECTORY_LINK = Target.the("telephone directory link")
             .locatedBy("//a[contains(@href, 'telephone-directory')]");
 
@@ -19,6 +32,9 @@ public class UOMITfacPage extends PageObject {
 
     public static final Target DIVISIONS_MENU = Target.the("Divisions menu")
             .located(By.id("main-menu-faculty-it-menu-link-content814134c6-2aa4-491b-be77-a312ee9018bd"));
+
+    public static final Target ABOUT_US_MENU = Target.the("About us menu")
+            .located(By.id("main-menu-faculty-it-menu-link-contentef79f04f-f927-47f1-9222-3115ada94692"));
 
     public static Target dropdownOption(String optionText) {
         return Target.the(optionText + " dropdown option")
@@ -55,6 +71,10 @@ public class UOMITfacPage extends PageObject {
 
 
 
+
+
+    public static final Target EMAIL_LINK = Target.the("info-fit@uom.lk email link")
+            .locatedBy("//div[contains(@class,'text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item')]//*[text()='info-fit@uom.lk']");
 
 
 }
