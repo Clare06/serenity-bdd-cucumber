@@ -100,4 +100,10 @@ public class ApiUtil {
                 return restRequestHelper.sendAsNotAuthorizedUser(method, body);
         }
     }
+    public Book updateBookName(String newBookName) {
+        Book book = fetchBookList().get(0);
+        book.setTitle(newBookName);
+        return updateBook(book);
+    }
+
 }
