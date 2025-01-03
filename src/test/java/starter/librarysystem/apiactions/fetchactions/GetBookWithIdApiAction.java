@@ -3,28 +3,27 @@ package starter.librarysystem.apiactions.fetchactions;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import starter.librarysystem.apiacitonsabstract.GetBookWithIdAbstract;
+import starter.librarysystem.apiresult.ResponseResultUnauthorizedBookFetchWithID;
 import starter.librarysystem.dto.Book;
 
 import static starter.librarysystem.apiactions.preactions.GetBookWithIdPreAction.globalBookToTest;
 
 public class GetBookWithIdApiAction extends GetBookWithIdAbstract {
     private static Book book;
+    public static ResponseResultUnauthorizedBookFetchWithID responseResultUnauthorizedBookFetchWithID = new ResponseResultUnauthorizedBookFetchWithID();
 
-    @When("As an user fetch the book with its id.")
-    public void fetchBookWithId(){
-        Book jenkinBook = fetchBook(globalBookToTest.getId());
+    @When("As a {string}, fetch the book with its id")
+    public void fetchBookWithId(String role){
+        Book jenkinBook = fetchBook(globalBookToTest.getId(), role);
 
-        // Validate the fetched book
         if (jenkinBook == null) {
-            throw new AssertionError("Error: Book is not being added! Fetched object is null or not of type Book.");
+            throw new AssertionError("Error: Book is not being added!. For" + role);
         }
 
-        // Assign the fetched book if validation passes
         book = jenkinBook;
-        System.out.println("***********" + jenkinBook.getAuthor());
     }
-    @Then("He should receive the book with title {string}")
-    public void heShouldReceiveTheBookWithTitle(String title){
-        verifyBook(title, book);
+    @Then("He should receive {string}")
+    public void heShouldReceiveTheBookWithTitle(String outcome){
+        verifyBook(outcome, book);
     }
 }
