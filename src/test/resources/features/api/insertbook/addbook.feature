@@ -12,6 +12,7 @@
 ##    Given the database is not empty
 ##    When I remove all books
 ##    Then the database should be empty
+@addBook
 Feature: Add a book to the library system
 
   Scenario Outline: Adding a book with different roles
