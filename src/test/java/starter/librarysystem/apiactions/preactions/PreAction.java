@@ -5,12 +5,13 @@ import io.cucumber.java.BeforeAll;
 import starter.librarysystem.api.ApiUtil;
 import starter.librarysystem.dto.Book;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
 public class PreAction {
     public static Book globalBookToTest;
-    public static List<Book> globalBookToDelete;
+    public static List<Book> globalBookToDelete = new ArrayList<>();
 
     @BeforeAll
     public static void givenThatBookIsAvailableInLibraryWithTitleAndAuthor() {

@@ -8,4 +8,4 @@ Feature: Delete a book from the database
       | role              | outcome                 |
       | admin             | status code 200         |
       | user              | forbidden 403           |
-      | unauthorized user | unauthorized code 401   |
+      | unauthorized      | unauthorized code 401   |
