@@ -100,4 +100,5 @@ public class ApiUtil {
                 return restRequestHelper.sendAsNotAuthorizedUser(method, body);
         }
     }
+
 }
