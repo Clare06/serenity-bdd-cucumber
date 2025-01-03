@@ -20,7 +20,7 @@ public class FindCalenderStepDefinitions {
 
     @When("the user hovers over the {string} menu")
     public void userHoversOverMenu(String menu) {
-        theActorInTheSpotlight().attemptsTo(Hover.over(UOMITfacPage.DIVISIONS_MENU));
+        theActorInTheSpotlight().attemptsTo(Hover.over(UOMITfacPage.menu(menu)));
     }
 
     @And("selects {string} from the dropdown")
