@@ -3,7 +3,7 @@ package starter.librarysystem.hooks;
 import io.cucumber.java.AfterAll;
 import starter.librarysystem.api.ApiUtil;
 import static starter.librarysystem.apiactions.insertactions.InsertBookApiAction.insertBookApiResult;
-import static starter.librarysystem.apiactions.preactions.GetBookWithIdPreAction.globalBookToTest;
+import static starter.librarysystem.apiactions.preactions.PreAction.globalBookToTest;
 
 public class AddBookAfterHook {
 

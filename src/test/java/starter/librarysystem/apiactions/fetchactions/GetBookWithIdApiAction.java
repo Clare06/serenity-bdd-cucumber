@@ -6,7 +6,7 @@ import starter.librarysystem.apiacitonsabstract.GetBookWithIdAbstract;
 import starter.librarysystem.apiresult.ResponseResultUnauthorizedBookFetchWithID;
 import starter.librarysystem.dto.Book;
 
-import static starter.librarysystem.apiactions.preactions.GetBookWithIdPreAction.globalBookToTest;
+import static starter.librarysystem.apiactions.preactions.PreAction.globalBookToTest;
 
 public class GetBookWithIdApiAction extends GetBookWithIdAbstract {
     private static Book book;
